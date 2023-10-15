@@ -9,6 +9,7 @@ import { ImageCard } from './imageCard';
 import { PreviewSlide } from './previewSlide';
 import { DropZone } from '../dropzone';
 
+
 const ImageManager = ({
   title = "Select image",
   buttonText = "Done",

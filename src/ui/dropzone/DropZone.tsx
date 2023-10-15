@@ -16,6 +16,9 @@ type newFileProps = {
   fileExtentsion:string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   UploadDate:any;
+  fileSize: number;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  imageSetDate: string | number | any;
 }
 
 const DropZone = ({ onImageUpload, imgFormat = [], setTime }: dropZoneProps) => {
@@ -38,6 +41,7 @@ const DropZone = ({ onImageUpload, imgFormat = [], setTime }: dropZoneProps) => 
   }
  // Function for base64 and Data onLoad
  const dataOnLoad = (file: File) => {
+
   if (file && isSupportedImageFormat(file, imgFormat)) {
     const reader = new FileReader();
     reader.onload = (event) => {
@@ -48,6 +52,8 @@ const DropZone = ({ onImageUpload, imgFormat = [], setTime }: dropZoneProps) => 
         fileType:'',
         fileExtentsion:'',
         UploadDate:'',
+        fileSize: 0,
+        imageSetDate: ''
       }
       newFile.id= getRandomInt(1000, 10000);
       const base64Image = event.target!.result as string;
@@ -56,6 +62,8 @@ const DropZone = ({ onImageUpload, imgFormat = [], setTime }: dropZoneProps) => 
       newFile.fileName = file.name.split('.')[0];
       newFile.fileExtentsion = file.name.split('.')[1];
       newFile.UploadDate = file.lastModified;
+      newFile.fileSize = file.size;
+      newFile.imageSetDate = '12 march 2023';
       onImageUpload(newFile);
     };
     reader.readAsDataURL(file);

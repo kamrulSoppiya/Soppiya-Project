@@ -5,10 +5,10 @@ import { Button } from '@/ui/button';
 import { CrossLineIcon, RightArrowIcon } from '@/assets/icons';
 import LeftArrowIcon from '@/assets/icons/leftArrowIcon/LeftArrowIcon';
 import { PreviewSlideProps } from './previewSlideModel';
+import {imageManagerModel} from './previewSlideModel';
 
 
-const PreviewSlide = ({ imgSource, handlePrevClick, handleNextClick, currentIndex, imgName, fileExtension="PNG", imgSize="500x500", onClose }: PreviewSlideProps) => {
-  console.log(imgSource);
+const PreviewSlide = ({ imgSource, handlePrevClick, handleNextClick, currentIndex, imgName, onClose }: PreviewSlideProps) => {
   return (
     <div className={style.preview_slide}>
       <div className={style.preview_slide_header}>
@@ -33,10 +33,10 @@ const PreviewSlide = ({ imgSource, handlePrevClick, handleNextClick, currentInde
           </Button>
         </div>
       </div>
-      
+    
       <div className={style.image_info}>
-        <Text size='sm' fontWeight='regular'>{imgName}.{fileExtension} </Text>
-        <Text size='sm' fontWeight='regular'> {imgSize}</Text>
+        <Text size='sm' fontWeight='regular'>{imgSource[currentIndex].fileName}</Text>
+        <Text size='sm' fontWeight='regular'>{imgSource[currentIndex].imageSetDate} .{imgSource[currentIndex].fileExtentsion} .{imgSource[currentIndex].fileSize}</Text>
       </div>
     </div> 
   )
