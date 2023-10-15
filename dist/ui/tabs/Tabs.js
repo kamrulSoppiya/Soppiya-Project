@@ -1,0 +1,2 @@
+import e from"../../utils/classNames.js";import t,{useState as a}from"react";import s from"./tabs.module.scss.js";const l=({children:l,tabs:r,onTabSelect:c})=>{const[i,m]=a(r?r[0].id:"0");return t.createElement("div",null,t.createElement("ul",{className:s.tab_nav},r&&r?.map(((a,l)=>t.createElement("li",{onClick:()=>{return e=a.id,m(e),void("function"==typeof c&&c(e));var e},className:e(s.tab_nav_item,i===a.id&&s.active),key:l},a.title)))),t.createElement("div",{className:s.tab_body},l))};export{l as default};
+//# sourceMappingURL=Tabs.js.map

@@ -1,0 +1,71 @@
+@import "../../scss/mixins/media";
+@import "../../scss/variables";
+@import "../../scss/mixins/flex";
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.modal {
+    @include flex(center, end);
+    background: $modal_overlay;
+    width: 100%;
+    position: fixed;
+    bottom: $space_0;
+    left: $space_0;
+    z-index: 3;
+    overflow: hidden;
+    outline: 0;
+    height: 100%;
+    
+    .modal_dialog.modal_sm {
+        width: 100%;
+    }
+    .modal_dialog.modal_md {
+        width: 100%;
+    }
+    .modal_dialog.modal_lg {
+        width: 100%;
+    }
+    .modal_dialog.modal_slg {
+        width: 100%;
+    }
+    
+    .wrapper{
+        max-height: calc(100vh - 250px);
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+           width: 0px;
+        }
+    }
+}
+
+@include responsive(tablet) {
+    .modal {
+        @include flex(center, center);
+        
+        .modal_dialog.modal_sm {
+            max-width: 450px;
+            width: 100%;
+            padding: $space_20;
+        }
+        .modal_dialog.modal_md {
+            max-width: 680px;
+            width: 100%;
+            padding: $space_20;
+        }
+        .modal_dialog.modal_slg {
+            max-width: 860px;
+            width: 100%;
+            padding: $space_20;
+        }
+        .modal_dialog.modal_lg {
+            max-width: 1020px;
+            width: 100%;
+            padding: $space_20;
+        }
+        .modal_content {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,133 @@
+@import "../../scss/mixins/media";
+@import "../../scss/variables";
+@import "../../scss/mixins/flex";
+@import "../../scss/mixins/font";
+
+.wrapper{
+  width: 100%;
+}
+.label_action_wrapper {
+  // @include flex(space-between, center);
+  margin-bottom: $space_6;
+}
+.label_text {
+  font-family: $inter;
+  @include font($fs_13, $fw_regular, $dark_charcoal);
+  width: 100%;
+}
+.action_text_wrapper {
+  width: 100%;
+}
+
+.input_field_wrapper {
+  position: relative;
+  width: 100%;
+  height: $space_36;
+}
+/* size */
+.sm_input {
+  height: $space_28 !important;
+}
+.md_input {
+  height: $space_32 !important;
+}
+.lg_input {
+  height: $space_36 !important;
+}
+.input_field {
+  border: $space_1 solid $philippine_silver;
+  height: 100%;
+  width: 100%;
+  border-radius: $space_3;
+  padding: $space_0 $space_12;
+  box-sizing: border-box;
+  background: transparent;
+  outline: $space_1 solid transparent;
+  box-shadow: $space_0 $space_0 $space_0 $space_2 $white;
+  font-family: $inter;
+  @include font($fs_13, $fw_regular, $dark_charcoal);
+  letter-spacing: $space_3;
+  &:focus {
+    border: $space_1 solid transparent;
+    outline-color: $true_blue;
+    box-shadow: $space_0 $space_0 $space_0 $space_2 $input_focus_shadow_color;
+    background: transparent !important;
+  }
+}
+.input_field::placeholder {
+  @include font($fs_13, $fw_regular, $granite_gray);
+  letter-spacing: $space_3;
+}
+
+.error_style {
+  background: $lavender_blush;
+  border-color: $vermilion;
+}
+.error_text {
+  font-family: $inter;
+  @include font($fs_12, $fw_regular, $vermilion);
+  letter-spacing: 0.5px;
+  margin: $space_7 $space_0 $space_0 $space_0;
+}
+.help_text {
+  font-family: $inter;
+  @include font($fs_12, $fw_regular, $nickel);
+  letter-spacing: 0.5px;
+  margin: $space_7 $space_0 $space_0 $space_0;
+}
+.cross_icon {
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: $space_0;
+  top: $space_0;
+  height: 100%;
+  width: $space_30;
+  @include flex(center, center);
+  & svg {
+    width: $space_20;
+    height: $space_17;
+  }
+}
+.prefix {
+  background: transparent;
+  border: none;
+  position: absolute;
+  left: $space_0;
+  top: $space_0;
+  height: 100%;
+  width: $space_40;
+  border-right: $space_1 solid $philippine_silver;
+  & svg {
+    width: $space_17;
+    height: $space_17;
+  }
+  @include flex(center, center);
+}
+
+.prefix_icon_padding {
+  padding-left: $space_50;
+}
+@include responsive(tablet) {
+  /* size */
+  .sm_input {
+    height: $space_32 !important;
+  }
+
+  .md_input {
+    height: $space_36 !important;
+  }
+
+  .lg_input {
+    height: $space_40 !important;
+  }
+}
+
+@include responsive(laptop) {
+  .action_text {
+    cursor: pointer;
+  }
+  .password {
+    cursor: pointer;
+  }
+}

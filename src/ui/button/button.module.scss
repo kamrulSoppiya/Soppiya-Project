@@ -1,0 +1,259 @@
+@import "../../scss/mixins/media";
+@import "../../scss/variables";
+@import "../../scss/mixins/flex";
+
+/* base styling for our button */
+.button {
+  background: $dark_charcoal;
+  border: $space_1 solid $dark_charcoal;
+  color: $white;
+  @include flex(center, center, $space_8);
+  border-radius: $space_3;
+  transition: all 0.3s;
+  font-weight: $fw_medium;
+}
+.button.loading{
+  border: none !important;
+}
+.default {
+  background: $dark_charcoal;
+  border: $space_1 solid $dark_charcoal;
+  color: $white;
+}
+
+.default:hover {
+  background-color: $eerie_black;
+  border: $space_1 solid $eerie_black;
+}
+
+.danger {
+  background: $vermilion;
+  border: $space_1 solid $vermilion;
+  color: $white;
+}
+
+.success {
+  background: $spanish_viridian;
+  border: $space_1 solid $spanish_viridian;
+  color: $white;
+}
+
+.warning {
+  background: $maize;
+  border: $space_1 solid $maize;
+  color: $white;
+}
+
+.disabled {
+  background: $light_gray_2 !important;
+  border: $space_1 solid $light_gray_2;
+  color: $white ;
+}
+.disabled:hover{
+  border:  $space_1 solid transparent!important;
+}
+.info{
+  background: $bondi_blue !important;
+  border: $space_1 solid $bondi_blue;
+  color: $white ;
+}
+.white{
+  background: $white !important;
+  border: $space_1 solid $silver_sand;
+  color: $dark_charcoal ;
+}
+/* size */
+.button_sm {
+  height: $space_28;
+  padding: $space_0 $space_16;
+  font-size: $fs_12;
+}
+
+.button_md {
+  height: $space_32;
+  padding: $space_0 $space_20;
+  font-size: $fs_13;
+}
+
+.button_lg {
+  height: $space_36;
+  padding: $space_0 $space_24;
+  font-size: $fs_13;
+}
+.button_xlg {
+  height: $space_40;
+  padding: $space_0 $space_24;
+  font-size: $fs_13;
+}
+
+/* display */
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.inline_block {
+  display: inline-flex;
+  width: auto;
+}
+
+/* type */
+.outline {
+  background: transparent;
+  color: $dark_charcoal;
+  border: $space_1 solid $silver_sand;
+}
+.outline:hover{
+  background-color: $outline_button_hover;
+}
+.outline.default{
+  border:$space_1 solid $silver_sand;
+  color:$dark_charcoal;
+  background: transparent !important;
+}
+.outline.disabled{
+  border:$space_1 solid  $light_gray_2;
+  color: $light_gray_2;
+  background:transparent !important;
+}
+.outline.danger{
+  border:$space_1 solid $vermilion;
+  color:$dark_charcoal;
+  background: transparent !important;
+}
+.outline.success{
+  border:$space_1 solid $spanish_viridian;
+  color:$dark_charcoal;
+  background: transparent !important;
+}
+.outline.warning{
+  border:$space_1 solid $maize;
+  color:$dark_charcoal;
+  background: transparent !important;
+}
+.outline.info{
+  border:$space_1 solid $bondi_blue !important;
+  color:$dark_charcoal;
+  background: transparent !important;
+}
+.outline.white{
+  border:$space_1 solid $silver_sand !important;
+  color:$silver_sand;
+  background: transparent !important;
+}
+.outline.default:hover, .outline.warning:hover, .outline.success, .outline.danger:hover, .outline.disabled{
+  background:transparent;
+}
+.text.link{
+  color:$true_blue !important;
+}
+
+.text {
+  background: transparent !important;
+  border: none;
+  color: $dark_charcoal;
+  display: inline-flex;
+  width: auto;
+  box-shadow: none !important;
+  padding:$space_0 !important;
+  & svg{
+    fill:$dark_charcoal;
+    & path{
+      fill:$dark_charcoal;
+    }
+  }
+}
+.text.button_lg, .text.button_md, .text.button_sm, .text.button_xlg{
+  height:auto !important;
+  padding:$space_0 !important;
+}
+.text.info{
+  color: $bondi_blue !important;
+    & svg{
+    fill:$bondi_blue;
+    & path{
+      fill:$bondi_blue;
+    }
+  }
+}
+.text.success{
+  color:$spanish_viridian !important;
+    & svg{
+    fill:$spanish_viridian;
+    & path{
+      fill:$spanish_viridian;
+    }
+  }
+}
+.text.warning{
+  color:$dark_goldenrod !important;
+    & svg{
+    fill:$dark_goldenrod;
+    & path{
+      fill:$dark_goldenrod;
+    }
+  }
+}
+.text.danger{
+  color:$vermilion !important;
+    & svg{
+    fill:$vermilion;
+    & path{
+      fill:$vermilion;
+    }
+  }
+}
+.text.default{
+  color:$dark_charcoal !important;
+    & svg{
+    fill:$dark_charcoal;
+    & path{
+      fill:$dark_charcoal;
+    }
+  }
+}
+
+.text:hover{
+  background:transparent;
+  border:none;
+  outline:none;
+}
+
+/* shadow */
+.isPressed {
+  box-shadow: $button_shadow;
+
+}
+
+/* loading */
+.loading {
+  background: $light_gray_2;
+  border: $space_1 solid $light_gray_2;
+  padding: $space_0 $space_30;
+  box-sizing: border-box;
+}
+
+@include responsive(tablet) {
+  /* size */
+  .button_sm {
+    height: $space_32;
+  }
+
+  .button_md {
+    height: $space_36;
+  }
+
+  .button_lg {
+    height: $space_40;
+    font-size: $fs_16;
+  }
+  .button_xlg {
+    height: $space_50;
+    font-size: $fs_16;
+  }
+}
+@include responsive(laptop) {
+  .button {
+    cursor: pointer;
+  }
+}

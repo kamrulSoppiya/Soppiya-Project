@@ -1,0 +1,36 @@
+@import "../../../scss/mixins/media";
+@import "../../../scss/variables";
+.card_footer {
+    padding: $space_20;
+}
+.card_footer.padding_sm{
+    padding: $space_10 ;
+  }
+  .card_footer.padding_md{
+    padding: $space_15 ;
+  }
+  .card_footer.padding_lg{
+    padding: $space_20 ;
+  }
+.flex {
+    display: flex;
+    gap: $space_15;
+}
+.flex_start {
+    justify-content: start;
+}
+.flex_center {
+    justify-content: center;
+}
+.flex_end {
+    justify-content: end;
+}
+.flex_between {
+    justify-content: space-between;
+}
+.flex_around {
+    justify-content: space-around;
+}
+.border_top {
+    border-top: $space_1 solid $drawn_pink;
+}

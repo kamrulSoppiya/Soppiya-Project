@@ -1,0 +1,50 @@
+@import "../../../scss/mixins/media";
+@import "../../../scss/variables";
+@import "../../../scss/mixins/flex";
+.preview_slide{
+    @include flex(space-between,_,_,column);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top:0;
+    z-index: 1;
+    background-color: $porcelain;
+    padding:10px 20px;
+    .preview_slide_header{
+        @include flex(space-between,center);
+        width: 100%;
+        & button{
+            padding:8px !important;
+        }
+    }
+    .slide_area{
+        position: relative;
+        @include flex(space-between, center, $space_20);
+    }
+    .preview_image{
+        width: 160px;
+        height: 160px;
+       @include flex();
+    }
+    .preview_image img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .image_info{
+        @include flex(_,_,_,column);
+    }
+}
+@include responsive(tablet){
+    .preview_slide{
+        @include flex(space-between,_,_,column);
+        height: 100%;
+        position: relative;
+        width: 100%;
+        left: 0;
+        top:0;
+        z-index: 1;
+      
+    }
+}

@@ -1,0 +1,2 @@
+import e from"../../styles/style-inject/dist/style-inject.es.js";var i={divider:"elementus_divider_6aati",divider_default:"elementus_divider_default_6aati",divider_semi_dark:"elementus_divider_semi_dark_6aati",divider_dark:"elementus_divider_dark_6aati"};e(".elementus_divider_6aati{height:1px;width:100%}.elementus_divider_default_6aati{background-color:#ebebeb}.elementus_divider_semi_dark_6aati{background-color:#aeb4b9}.elementus_divider_dark_6aati{background-color:#8c9196}");export{i as default};
+//# sourceMappingURL=divider.module.scss.js.map

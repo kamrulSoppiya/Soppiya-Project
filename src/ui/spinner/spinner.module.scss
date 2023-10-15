@@ -1,0 +1,67 @@
+@import "../../scss/variables";
+.spinner {
+  height: $space_16;
+  width: $space_16;
+  border: $space_3 solid $silver_sand;
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  will-change: transform;
+  animation: spin 700ms infinite linear;
+  display: block;
+}
+
+.xsm{
+  width: 16px;
+  height: 16px;
+  border: 2px solid $silver_sand;
+}
+.sm{
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid $silver_sand;
+}
+.md{
+  width: 30px;
+  height: 30px;
+  border: 2.5px solid $silver_sand;
+}
+.lg{
+  width: 40px;
+  height: 40px;
+  border: 3px solid $silver_sand;
+}
+.spinner.xlg{
+  width: 60px;
+  height: 60px;
+  border: 3px solid $silver_sand;
+}
+
+.border_info{
+  border-color: $bondi_blue !important;
+  border-bottom-color: transparent !important;
+  border-right-color: transparent !important;
+}
+.border_success{
+  border-color: $spanish_viridian !important;
+  border-bottom-color: transparent !important;
+  border-right-color: transparent !important;
+}
+.border_danger{
+  border-color: $vermilion;
+  border-bottom-color: transparent !important;
+  border-right-color: transparent !important;
+}
+.border_warning{
+  border-color: $maize;
+  border-bottom-color: transparent !important;
+  border-right-color: transparent !important;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

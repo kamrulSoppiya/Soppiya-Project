@@ -1,0 +1,205 @@
+/*=============================================
+=                 #Variables                  =
+=============================================*/
+
+/**
+* Tables of content
+*
+* COLORS
+* Brand colors ............................................ These are the main brand color. This is call primary color.
+* Natural colors........................................... These are the natural color. Without primary and utility colors.
+* Utility colors........................................... These are the natural color. Without primary and utility colors. like -> error, alert, link.
+* 
+* TYPOGRAPHY
+* Font families............................................ Which font family use in this design system.
+* Font weights.............................................  Which font weight use in this design system.
+* Sizes.................................................... These font sizes are used for body like paragraph, input, label etc
+* Heading font sizes....................................... These font sizes are used for page and section heading.
+* 
+* BREAKPOINT
+* Breakpoint............................................... Global breakpoints
+* 
+* SPACING
+* Space.................................................... The fixed space are defined here 
+* 
+* 
+* 
+* 
+* 
+**/
+/*=============================================
+=                   #Colors                   =
+=============================================*/
+
+/*  #__brand color__ */
+$brand_color: #0DA5FB;
+
+/*  #__Natural colors__ */
+$dark_charcoal: #303030; /* primary */
+$philippine_silver: #B9B3AE;
+$granite_gray: #616161;
+$nickel: #6D7175;
+$eerie_black: #1A1A1A;
+$light_gray_2: #D4D4D4;
+$silver_sand:#BABFC3;
+$true_blue : #005BD3; /* link */
+$white: #ffffff;
+$cadet_blue:#AEB4B9;
+$gray_suit:#BABFC3;
+$outline_button_hover:#F1F2F3;
+$dawn_pink:#ECECEC;
+$storm_dust:#616161;
+$bondi_blue:#00A0AC;
+$cyan_opaque:#98C6CD;
+$alice_blue:#EBF9FC;
+$shadow_green:#95C9B4;
+$white_smoke:#F1F8F5;
+$dark_goldenrod:#B98900;
+$old_lace:#FFF5EA;
+$flamingo_pink:#FFA7A3;
+$drawn_pink:#EBEBEB;
+$blue_purple:#5F27CD;
+$romance:#FEFEFE;
+$white_lilac:#F6F6F7;
+
+
+
+/*  #__Utility color__ */
+$spanish_viridian:#008060; /* success */
+$vermilion : #D82C0D; /* danger */
+$maize:#E1B878;/* warning */
+$light_gray: #D2D5D8;
+$philippine_gray: #8C9196;
+$lavender_blush : #FFF4F4;
+
+/* #__ component specific color __# */
+$info_banner_bg: rgba(235, 249, 252, 0.95);
+$success_banner_bg:rgba(241, 248, 245, 1);
+$warning_banner_bg:rgba(255, 245, 234, 0.95);
+$danger_banner_bg:#fff4f4;
+$active_tab:#202223;
+$modal_overlay:rgba(48,48,48,.5);
+$aqua_haze: #F3F3F3;
+$porcelain:#f1f2f3;
+$img_card_overlay: rgba(26, 26, 26, 0.6);
+
+
+
+/*=============================================
+=                 #Typography                 =
+=============================================*/
+/*  #__font family__ */
+$inter: 'Inter', sans-serif;
+
+
+/*  #__font sizes__ */
+$fs_10: 10px;
+$fs_11: 11px;
+$fs_12: 12px;
+$fs_13: 13px;
+$fs_14: 14px;
+$fs_14: 15px;
+$fs_16: 16px;
+$fs_17: 17px;
+$fs_18: 18px;
+$fs_19: 19px;
+$fs_20: 20px;
+$fs_21: 21px;
+$fs_22: 22px;
+$fs_23: 23px;
+$fs_24: 24px;
+$fs_25: 25px;
+$fs_26: 26px;
+$fs_27: 27px;
+$fs_28: 28px;
+$fs_29: 29px;
+$fs_30: 30px;
+$fs_31: 31px;
+$fs_32: 32px;
+$fs_33: 33px;
+$fs_34: 34px;
+$fs_35: 35px;
+$fs_36: 36px;
+$fs_37: 37px;
+$fs_38: 38px;
+$fs_39: 39px;
+$fs_40: 40px;
+
+
+
+/* #___Font Weights___# */
+$fw_regular:400;
+$fw_medium:500;
+$fw_semiBold:600;
+$fw_bold:700;
+
+
+/*=============================================
+=                 #Typography                 =
+=============================================*/
+/*  #__Shadow__ */
+$button_shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.30) inset, 0px 1px 0px 0px rgba(0, 0, 0, 0.08);
+$input_focus_shadow_color: rgba(0, 91, 211, 0.20);
+$card_shadow: 0px 1px 2px 0px rgba(48, 48, 48, 0.10);
+
+
+/*=============================================
+=                     #Space                  =
+=============================================*/
+
+$space_none:none;
+$space_0:0px;
+$space_1:1px;
+$space_2:2px;
+$space_3:3px;
+$space_4:4px;
+$space_5:5px;
+$space_6:6px;
+$space_7:7px;
+$space_8:8px;
+$space_9:9px;
+$space_10:10px;
+$space_11:11px;
+$space_12:12px;
+$space_13:13px;
+$space_14:14px;
+$space_15:15px;
+$space_16:16px;
+$space_17:17px;
+$space_18:18px;
+$space_19:19px;
+$space_20:20px;
+$space_21:21px;
+$space_22:22px;
+$space_23:23px;
+$space_24:24px;
+$space_25:25px;
+$space_26:26px;
+$space_27:27px;
+$space_28:28px;
+$space_29:29px;
+$space_30:30px;
+$space_31:31px;
+$space_32:32px;
+$space_33:33px;
+$space_34:34px;
+$space_34:34px;
+$space_35:35px;
+$space_36:36px;
+$space_37:37px;
+$space_38:38px;
+$space_39:39px;
+$space_40:40px;
+$space_41:41px;
+$space_42:42px;
+$space_43:43px;
+$space_44:44px;
+$space_45:45px;
+$space_46:46px;
+$space_47:47px;
+$space_48:48px;
+$space_49:49px;
+$space_50:50px;
+
+
+$transition:all .3s;

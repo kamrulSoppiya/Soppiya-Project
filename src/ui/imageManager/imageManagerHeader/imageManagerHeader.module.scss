@@ -1,0 +1,110 @@
+@import "../../../scss/mixins/media";
+@import "../../../scss/variables";
+@import "../../../scss/mixins/flex";
+.content_body_header {
+    @include flex(space-between, center, $space_20);
+    width: 100%;
+    .header_left {
+        display: flex;
+    }
+    .header_right {
+        @include flex(end, center, $space_10);
+    }
+    .button {
+        width: 28px;
+        & button {
+            padding: 0px;
+            width: 100%;
+            & span {
+                display: none;
+            }
+        }
+    }
+    .sorting_button {
+        position: relative;
+    }
+    .sorting_box {
+        position: absolute;
+        background-color: $white;
+        top: 36px;
+        right: 0;
+        border-radius: 3px;
+        padding: 0 15px;
+        width: 210px;
+        box-shadow: 0px 0px 2px 0px #3030301A, 0px 1px 0px 0px #3030301A;
+        z-index: 2;
+        height: 0px;
+        visibility: hidden;
+        transition: $transition;
+
+
+    }
+    .sorting_inner{
+        overflow: hidden;
+        height: 0px;
+    }
+    .active_sorting_box .sorting_box{
+        height: 144px;
+        padding: 15px 15px;
+        transition: $transition;
+        visibility: visible;
+    }
+    .active_sorting_box .sorting_box .sorting_inner{
+        height: 114px;
+        transition: $transition;
+    }
+    .sorting_inner {
+        @include flex(_, _, $space_10, column);
+    }
+}
+@include responsive(tablet) {
+    .content_body_header {
+        .header_left {
+            width: 207px;
+        }
+        .header_right {
+            width: calc(100% - 207px);
+        }
+        .button {
+            width: 32px;
+            & button {
+                padding: 0px;
+                width: 100%;
+            }
+        }
+    }
+}
+@include responsive(laptop) {
+    .content_body_header {
+        .header_left {
+            width: 300px;
+        }
+        .header_right {
+            width: calc(100% - 300px);
+        }
+        .button {
+            width: 32;
+            & button {
+                padding: 0;
+                width: 100%;
+                & span {
+                    display: block;
+                }
+            }
+        }
+        .padding {
+            width: auto;
+            & button {
+                padding: 0 20px;
+            }
+        }
+        .hide_icon {
+            display: none;
+            & button {
+                & svg {
+                    display: none;
+                }
+            }
+        }
+    }
+}

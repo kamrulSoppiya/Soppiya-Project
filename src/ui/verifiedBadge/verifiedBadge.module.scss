@@ -1,0 +1,19 @@
+@import "../../scss/mixins/media";
+@import "../../scss/variables";
+@import "../../scss/mixins/flex";
+@import "../../scss/mixins/font";
+.verified_badge {
+    @include flex(_, center, $space_5, _);
+}
+.verified_verified_text {
+    @include font($fs_12, $fw_regular, $spanish_viridian);
+}
+.not_verified_text {
+    @include font($fs_12, $fw_regular,$dark_goldenrod);
+}
+@include responsive(tablet) {
+    .verified_verified_text, .not_verified_text {
+        @include font($fs_13);
+    }
+  }
+  

@@ -1,0 +1,40 @@
+@import "../../scss/mixins/media";
+@import "../../scss/variables";
+@import "../../scss/mixins/flex";
+@import "../../scss/mixins/font";
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 3px;
+  @include flex(center, center, $space_2);
+  @include font($fs_12, $fw_medium, $white);
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+.avatar_sm {
+  width: 28px;
+  height: 28px;
+  @include font($fs_12, $fw_medium, $white);
+}
+.avatar_md {
+  width: 32px;
+  height: 32px;
+  @include font($fs_13, $fw_medium, $white);
+}
+.avatar_lg {
+  width: 36px;
+  height: 36px;
+  @include font($fs_14, $fw_medium, $white);
+}
+.name{
+  letter-spacing: $space_1;
+}
+
+@include responsive(laptop){
+  .avatar{
+    cursor: pointer;
+  }
+}

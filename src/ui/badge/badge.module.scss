@@ -1,0 +1,37 @@
+@import "../../scss/mixins/media";
+@import "../../scss/variables";
+@import "../../scss/mixins/flex";
+@import "../../scss/mixins/font";
+
+.badge{
+    @include font($fs_12,$fw_regular,$storm_dust,$space_16);
+    padding:$space_2 $space_8;
+    border:$space_1 solid $light_gray;
+    border-radius:$space_10;
+    display: inline-block;
+}
+.badge.badge_neutral{
+    border-color: $light_gray;
+    background:$dawn_pink;
+    color:$storm_dust;
+}
+.badge.badge_info{
+    border-color: $cyan_opaque;
+    color:$bondi_blue;
+    background:$alice_blue;
+}
+.badge.badge_success{
+    border-color:$shadow_green;
+    color:$spanish_viridian;
+    background:$white_smoke;
+}
+.badge.badge_warning{
+    border-color:$maize;
+    color:$dark_goldenrod;
+    background:$old_lace;
+}
+.badge.badge_danger{
+    border-color:$flamingo_pink;
+    color:$vermilion;
+    background:$lavender_blush;
+}

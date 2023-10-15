@@ -1,0 +1,2 @@
+import e from"../../../utils/classNames.js";import r from"react";import s from"./cardHeader.module.scss.js";const a=({children:a,justifyContent:d,border:t,padding:o="lg",customPadding:c,className:l})=>{const m=e(s.card_header,d&&s.flex,s["flex_"+d],s["border_"+t],s["padding_"+o],l||"");return r.createElement("div",{className:m,style:{padding:c}},a)};export{a as default};
+//# sourceMappingURL=CardHeader.js.map

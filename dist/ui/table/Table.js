@@ -1,0 +1,2 @@
+import e from"react";import r from"./table.module.scss.js";import o from"../../utils/classNames.js";const s=({children:s,scroll:l,border:t,borderColor:a,bgColor:c,headerBgColor:d,hover:m,striped:i,size:_})=>{const b=o(r["scroll_width_"+l]),h=o(r.table,r["table_"+t],r["header_bg_"+d],r["bg_"+c],r["border_color_"+a],r["striped_"+i],r["hover_"+m],r["size_"+_]);return e.createElement("div",{className:b},e.createElement("table",{className:h},s))};export{s as default};
+//# sourceMappingURL=Table.js.map

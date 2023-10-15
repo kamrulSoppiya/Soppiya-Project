@@ -1,0 +1,90 @@
+@import "../../scss/mixins/media";
+@import "../../scss/variables";
+@import "../../scss/mixins/flex";
+@import "../../scss/mixins/font";
+
+.label_action_wrapper {
+    margin-bottom: $space_6;
+}
+.label_text {
+    font-family: $inter;
+    @include font($fs_13, $fw_regular, $dark_charcoal);
+    width: 100%;
+}
+.select_field_wrapper {
+    position: relative;
+    width: 100%;
+    height: $space_36;
+}
+/* size */
+.sm_select {
+    height: $space_28 !important;
+}
+.md_select {
+    height: $space_32 !important;
+}
+.lg_select {
+    height: $space_36 !important;
+}
+.select_field {
+    border: 1px solid #b9b3ae;
+    height: 100%;
+    width: 100%;
+    border-radius: 3px;
+    padding: 0px 12px;
+    box-sizing: border-box;
+    background: transparent;
+    outline: 1px solid transparent;
+    box-shadow: 0px 0px 0px 2px #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #303030;
+}
+.spinner_center{
+    @include flex(center, center);
+}
+.error_style {
+    background: $lavender_blush;
+    border-color: $vermilion;
+}
+.error_text {
+    font-family: $inter;
+    @include font($fs_12, $fw_regular, $vermilion);
+    letter-spacing: 0.5px;
+    margin: $space_7 $space_0 $space_0 $space_0;
+}
+.help_text {
+    font-family: $inter;
+    @include font($fs_12, $fw_regular, $nickel);
+    letter-spacing: 0.5px;
+    margin: $space_7 $space_0 $space_0 $space_0;
+}
+.cross_icon {
+    background: transparent;
+    border: none;
+    position: absolute;
+    right: $space_0;
+    top: $space_0;
+    height: 100%;
+    width: $space_30;
+    @include flex(center, center);
+    & svg {
+        width: $space_20;
+        height: $space_17;
+    }
+}
+@include responsive(tablet) {
+    /* size */
+    .sm_select {
+      height: $space_32 !important;
+    }
+  
+    .md_select {
+      height: $space_36 !important;
+    }
+  
+    .lg_select {
+      height: $space_40 !important;
+    }
+  }

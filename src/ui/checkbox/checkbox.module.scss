@@ -1,0 +1,51 @@
+@import "../../scss/variables";
+@import "../../scss/mixins/flex";
+@import "../../scss/mixins/font";
+.checkbox {
+    .label_text,
+    .name_text {
+        font-family: $inter;
+        @include font($fs_12, $fw_medium, $dark_charcoal);
+        width: 100%;
+        display: inline-block;
+        margin-bottom: $space_7;
+    }
+    .name_text {
+        margin-bottom: $space_0;
+    }
+    .checkbox_field_wrapper {
+        @include flex(_, center, $space_7);
+    }
+    .checkbox_field {
+        padding: $space_0;
+        margin: $space_0;
+    }
+
+    .help_text_wrapper {
+        margin: $space_7 $space_0 $space_0 $space_0;
+    }
+    .help_text {
+        font-family: $inter;
+        @include font($fs_12, $fw_regular, $nickel);
+        letter-spacing: 0.5px;
+    }
+}
+
+input[type="checkbox" i] {
+    font: inherit;
+    border-radius: 5px !important;
+    height: $space_16;
+    width: $space_16;
+    transform: translateY(-0.075em);
+}
+.default_type {
+    input[type="checkbox"]:checked {
+        accent-color: $dark_charcoal;
+    }
+}
+
+.error_type {
+    input[type="checkbox"]:checked {
+        accent-color: $vermilion;
+    }
+}

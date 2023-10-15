@@ -1,0 +1,45 @@
+@import "../../scss/mixins/media";
+@import "../../scss/variables";
+@import "../../scss/mixins/flex";
+@import "../../scss/mixins/font";
+
+.tab_nav{
+    @include flex(start, center,);
+    list-style:none;
+    width: 100%;
+    border-bottom:$space_1 solid $drawn_pink;
+    margin:$space_0;
+    padding:$space_0;
+}
+.tab_nav_item{
+    padding: $space_15 $space_16;
+    @include font($fs_12,$fw_regular,$nickel);
+}
+.tab_nav_item.active{
+    position: relative;
+    color:$active_tab;
+}
+.active::after{
+    content: "";
+    position: absolute;
+    left: $space_0;
+    bottom:$space_0;
+    height: $space_3;
+    width: 100%;
+    background-color: $dark_charcoal;
+    border-radius: $space_4 $space_4 $space_0 $space_0;
+}
+.tab_body{
+    padding:$space_20 $space_0;
+}
+
+@include responsive(tablet){
+    .tab_nav_item{
+        @include font($fs_13,$fw_regular,$nickel);
+    }
+}
+@include responsive(laptop){
+    .tab_nav_item{
+       cursor: pointer;
+    }
+}

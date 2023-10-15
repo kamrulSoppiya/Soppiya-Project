@@ -1,0 +1,189 @@
+@import "../../scss/mixins/media";
+@import "../../scss/variables";
+@import "../../scss/mixins/flex";
+@import "../../scss/mixins/font";
+
+.phone_wrapper {
+  @include flex(start, center);
+  border: $space_1 solid $philippine_silver !important;
+  position: relative;
+  z-index: 1;
+  height: $space_36;
+  border-radius: $space_3;
+  position: relative;
+  z-index: 2;
+  // background-color: #ffffff;
+}
+.flag_wrapper {
+  @include flex(start, center);
+  // background-color: #ffffff;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.prefix {
+  background: transparent;
+  border: none;
+  left: $space_0;
+  top: $space_0;
+  height: 100%;
+  position: relative;
+  width: 68px;
+  @include flex(space-between, center, $space_10);
+  padding: 3px;
+  border-right: $space_1 solid $philippine_silver !important;
+  & img {
+    width: 24px;
+    height: 16px;
+  }
+  & svg {
+    width: $space_17;
+    height: $space_17;
+  }
+  @include flex(center, center);
+}
+.fill_arrow {
+  & svg {
+    width: $space_12;
+    height: $space_12;
+  }
+}
+
+.country_code {
+  @include flex(center, center);
+  padding-left: $space_8;
+}
+
+.select {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+  width: calc(100% - 10px);
+  padding-left: 3px;
+  height: 20px !important;
+}
+.custom_select {
+  height: 0px !important;
+  box-shadow: none !important;
+  
+}
+
+.label_action_wrapper {
+  margin-bottom: $space_6;
+}
+.label_text,
+label {
+  font-family: $inter;
+  @include font($fs_13, $fw_regular, $dark_charcoal);
+  @include flex(start);
+  width: 100%;
+}
+.action_text_wrapper {
+  width: 100%;
+}
+
+.input_field_wrapper {
+  width: 100%;
+  height: 100%;
+}
+/* size */
+.sm_input {
+  height: $space_28 !important;
+}
+.md_input {
+  height: $space_32 !important;
+}
+.lg_input {
+  height: $space_36 !important;
+}
+.input_field {
+  // border: $space_1 solid $philippine_silver;
+  border: none;
+  height: calc(100% - 4px);
+  width: 100%;
+  border-radius: $space_0 $space_3 $space_3 $space_0;
+  padding: $space_0 $space_12;
+  box-sizing: border-box;
+  background: transparent;
+  outline: $space_1 solid transparent;
+  box-shadow: $space_0 $space_0 $space_0 $space_2 $white;
+  font-family: $inter;
+  border-left: none;
+  box-sizing: border-box;
+  @include font($fs_13, $fw_regular, $dark_charcoal);
+  margin-top: 2px;
+  letter-spacing: $space_3;
+  // background: #ffffff;
+  &:focus {
+    border: $space_1 solid transparent;
+    background: transparent !important;
+  }
+}
+.input_field::placeholder {
+  @include font($fs_13, $fw_regular, $granite_gray);
+  letter-spacing: $space_3;
+}
+
+.error_style {
+  background: $lavender_blush;
+  border-color: $vermilion;
+}
+.error_text {
+  font-family: $inter;
+  @include font($fs_12, $fw_regular, $vermilion);
+  letter-spacing: 0.5px;
+  margin: $space_7 $space_0 $space_0 $space_0;
+}
+.help_text {
+  font-family: $inter;
+  @include font($fs_12, $fw_regular, $nickel);
+  letter-spacing: 0.5px;
+  margin: $space_7 $space_0 $space_0 $space_0;
+}
+.cross_icon {
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: $space_0;
+  top: $space_0;
+  height: 100%;
+  width: $space_30;
+  @include flex(center, center);
+  & svg {
+    width: $space_20;
+    height: $space_17;
+  }
+}
+
+.spinner_center{
+  border: $space_1 solid $philippine_silver !important;
+  border-radius: $space_3;
+  @include flex(center, center);
+}
+
+@include responsive(tablet) {
+  /* size */
+  .sm_input {
+    height: $space_32 !important;
+  }
+
+  .md_input {
+    height: $space_36 !important;
+  }
+
+  .lg_input {
+    height: $space_40 !important;
+  }
+}
+
+@include responsive(laptop) {
+  .password,
+  .prefix,
+  .action_text {
+    cursor: pointer;
+  }
+}

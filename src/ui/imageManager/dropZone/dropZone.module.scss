@@ -1,0 +1,26 @@
+@import "../../../scss/mixins/media";
+@import "../../../scss/variables";
+@import "../../../scss/mixins/flex";
+.drop_zone {
+    margin-bottom:30px;
+    .inner {
+        width: 100%;
+        height: 120px;
+        border: 1px dashed $cadet_blue;
+        border-radius: 5px;
+        @include flex(center, center);
+    }
+    .button_wrapper {
+        @include flex(center, center, $space_10, column);
+    }
+    .file {
+        display: none;
+    }
+}
+@include responsive(laptop) {
+    .drop_zone {
+        .inner {
+           cursor: pointer;
+        }
+    }
+}

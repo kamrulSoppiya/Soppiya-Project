@@ -1,0 +1,470 @@
+@import "../../scss/variables";
+@import "../../scss/mixins/flex";
+@import "../../scss/mixins/font";
+
+.table {
+    width: 100%;
+    caption-side: bottom;
+    border-collapse: collapse;
+    & thead {
+        vertical-align: bottom;
+        background-color: $aqua_haze;
+    }
+    & thead tr th,
+    & tbody tr td {
+        text-align: start;
+    }
+    & thead tr th:last-child,
+    & tbody tr td:last-child {
+        text-align: end;
+    }
+    & thead tr th,
+    & tbody tr td {
+        padding: $space_16;
+    }
+    & thead,
+    & tbody tr:not(:last-child) {
+        border-bottom: 1px solid $drawn_pink;
+    }
+}
+
+/* header bg */
+.table.header_bg_transparent {
+    & thead {
+        background-color: transparent;
+    }
+}
+.table.header_bg_info {
+    & thead {
+        background-color: $info_banner_bg;
+    }
+}
+.table.header_bg_success {
+    & thead {
+        background-color: $success_banner_bg;
+    }
+}
+.table.header_bg_warning {
+    & thead {
+        background-color: $warning_banner_bg;
+    }
+}
+.table.header_bg_danger {
+    & thead {
+        background-color: $danger_banner_bg;
+    }
+}
+.table.header_bg_dark {
+    & thead {
+        background-color: $dark_charcoal;
+        color: $white;
+        & p,
+        & span {
+            color: $white;
+        }
+    }
+}
+.table.header_bg_secondary {
+    & thead {
+        background-color: $aqua_haze;
+    }
+}
+
+/* table bg color */
+.table.bg_info {
+    background-color: $info_banner_bg;
+    caption-side: bottom;
+    border-collapse: collapse;
+    // td, th, p, span{
+    //     color:$white;
+    // }
+    & thead {
+        background-color: $info_banner_bg;
+    }
+    & thead tr,
+    & tbody tr {
+        border-width: 0px !important;
+    }
+}
+.table.bg_success {
+    background-color: $success_banner_bg;
+    caption-side: bottom;
+    border-collapse: collapse;
+    // td, th, p, span{
+    //     color:$white;
+    // }
+    & thead {
+        background-color: $success_banner_bg;
+    }
+    & thead tr,
+    & tbody tr {
+        border-width: 0px !important;
+    }
+}
+.table.bg_warning {
+    background-color: $warning_banner_bg;
+    caption-side: bottom;
+    border-collapse: collapse;
+    // td, th, p, span{
+    //     color:$white;
+    // }
+    & thead {
+        background-color: $warning_banner_bg;
+    }
+    & thead tr,
+    & tbody tr {
+        border-width: 0px !important;
+    }
+}
+.table.bg_danger {
+    background-color: $danger_banner_bg;
+    caption-side: bottom;
+    border-collapse: collapse;
+    // td, th, p, span{
+    //     color:$white;
+    // }
+    & thead {
+        background-color: $danger_banner_bg;
+    }
+    & thead tr,
+    & tbody tr {
+        border-width: 0px !important;
+    }
+}
+.table.bg_secondary {
+    background-color: $aqua_haze;
+    caption-side: bottom;
+    border-collapse: collapse;
+    // td, th, p, span{
+    //     color:$white;
+    // }
+    & thead {
+        background-color: $aqua_haze;
+    }
+    & thead tr,
+    & tbody tr {
+        border-width: 0px !important;
+    }
+}
+.table.bg_dark {
+    background-color: $dark_charcoal;
+    caption-side: bottom;
+    border-collapse: collapse;
+    td,
+    th,
+    p,
+    span {
+        color: $white;
+    }
+    & thead {
+        background-color: $dark_charcoal;
+    }
+    & thead tr,
+    & tbody tr {
+        border-width: 0px !important;
+    }
+}
+.table.bg_transparent {
+    background-color: transparent;
+
+    & thead {
+        background-color: transparent;
+        & tr {
+            border-bottom: none;
+        }
+    }
+}
+
+/* border */
+.table.table_bordered {
+    border: 1px solid $drawn_pink !important;
+    & thead tr,
+    & tbody tr {
+        border-bottom: 1px solid $drawn_pink !important;
+    }
+    & thead tr th,
+    & tbody tr td {
+        border-right: 1px solid $drawn_pink !important;
+    }
+}
+.table.table_headerBottom {
+    border: 1px solid transparent;
+    & thead tr {
+        border-bottom: 1px solid $drawn_pink;
+    }
+    & tbody tr {
+        border-bottom: 1px solid transparent !important;
+    }
+}
+.table_borderLess {
+    border: transparent;
+    & thead {
+        background-color: $aqua_haze;
+    }
+    & thead tr {
+        border-bottom: 1px solid transparent;
+    }
+    & tbody tr {
+        border-bottom: 1px solid transparent !important;
+    }
+}
+
+/* border color */
+.table.border_color_info {
+    border: 1px solid $bondi_blue;
+    & thead tr th {
+        border: 1px solid $bondi_blue;
+        border-right: 1px solid $bondi_blue !important;
+    }
+    & thead tr th,
+    & tbody tr td {
+        border: 1px solid $bondi_blue;
+        border-right: 1px solid $bondi_blue !important;
+    }
+}
+.table.border_color_success {
+    border: 1px solid $spanish_viridian;
+    & thead tr th {
+        border: 1px solid $spanish_viridian;
+        border-right: 1px solid $spanish_viridian !important;
+    }
+    & thead tr th,
+    & tbody tr td {
+        border: 1px solid $spanish_viridian;
+        border-right: 1px solid $spanish_viridian !important;
+    }
+}
+.table.border_color_warning {
+    border: 1px solid $maize;
+    & thead tr th {
+        border: 1px solid $maize;
+        border-right: 1px solid $maize !important;
+    }
+    & thead tr th,
+    & tbody tr td {
+        border: 1px solid $maize;
+        border-right: 1px solid $maize !important;
+    }
+}
+.table.border_color_danger {
+    border: 1px solid $vermilion;
+    & thead tr th {
+        border: 1px solid $vermilion;
+        border-right: 1px solid $vermilion !important;
+    }
+    & thead tr th,
+    & tbody tr td {
+        border: 1px solid $vermilion;
+        border-right: 1px solid $vermilion !important;
+    }
+}
+.table.border_color_secondary {
+    border: 1px solid $aqua_haze;
+    & thead tr th {
+        border: 1px solid $aqua_haze;
+        border-right: 1px solid $aqua_haze !important;
+    }
+    & thead tr th,
+    & tbody tr td {
+        border: 1px solid $aqua_haze;
+        border-right: 1px solid $aqua_haze !important;
+    }
+}
+.table.border_color_dark {
+    border: 1px solid $dark_charcoal;
+    & thead tr th {
+        border: 1px solid $dark_charcoal;
+        border-right: 1px solid $dark_charcoal !important;
+    }
+    & thead tr th,
+    & tbody tr td {
+        border: 1px solid $dark_charcoal;
+        border-right: 1px solid $dark_charcoal !important;
+    }
+}
+.table.border_color_transparent {
+    border: 1px solid transparent;
+    & thead tr th {
+        border: 1px solid transparent;
+        border-right: 1px solid transparent !important;
+    }
+    & thead tr th,
+    & tbody tr td {
+        border: 1px solid transparent;
+        border-right: 1px solid transparent !important;
+    }
+}
+
+/* striped */
+.table.striped_striped {
+    & td,
+    & th {
+        border-width: 0px !important;
+    }
+    & tbody tr:nth-child(even) {
+        background-color: $aqua_haze;
+    }
+}
+.table.bg_info.striped_striped {
+    & td,
+    & th {
+        border-width: 0px !important;
+    }
+    & tbody tr:nth-child(odd) {
+        background-color: $white !important;
+        & td,
+        & p,
+        & span {
+            color: $dark_charcoal;
+        }
+    }
+    & tbody tr:nth-child(even) {
+        background-color: $info_banner_bg;
+    }
+}
+.table.bg_secondary.striped_striped {
+    & td,
+    & th {
+        border-width: 0px !important;
+    }
+    & tbody tr:nth-child(odd) {
+        background-color: $white !important;
+        & td,
+        & p,
+        & span {
+            color: $dark_charcoal;
+        }
+    }
+    & tbody tr:nth-child(even) {
+        background-color: $aqua_haze;
+    }
+}
+.table.bg_success.striped_striped {
+    & td,
+    & th {
+        border-width: 0px !important;
+    }
+    & tbody tr:nth-child(odd) {
+        background-color: $white !important;
+        & td,
+        & p,
+        & span {
+            color: $dark_charcoal;
+        }
+    }
+    & tbody tr:nth-child(even) {
+        background-color: $success_banner_bg;
+        & td,
+        & p,
+        & span {
+            color: $dark_charcoal;
+        }
+    }
+}
+.table.bg_warning.striped_striped {
+    & td,
+    & th {
+        border-width: 0px !important;
+    }
+    & tbody tr:nth-child(odd) {
+        background-color: $white !important;
+        & td,
+        & p,
+        & span {
+            color: $dark_charcoal;
+        }
+    }
+    & tbody tr:nth-child(even) {
+        background-color: $warning_banner_bg;
+    }
+}
+.table.bg_danger.striped_striped {
+    & td,
+    & th {
+        border-width: 0px !important;
+    }
+    & tbody tr:nth-child(odd) {
+        background-color: $white !important;
+        & td,
+        & p,
+        & span {
+            color: $dark_charcoal;
+        }
+    }
+    & tbody tr:nth-child(even) {
+        background-color: $danger_banner_bg;
+        & td,
+        & p,
+        & span {
+            color: $dark_charcoal;
+        }
+    }
+}
+.table.bg_dark.striped_striped {
+    & td,
+    & th {
+        border-width: 0px !important;
+    }
+    & tbody tr:nth-child(odd) {
+        background-color: $white !important;
+        & td,
+        & p,
+        & span {
+            color: $dark_charcoal;
+        }
+    }
+    & tbody tr:nth-child(even) {
+        background-color: $aqua_haze;
+        & td,
+        & p,
+        & span {
+            color: $dark_charcoal;
+        }
+    }
+}
+
+.table.hover_hover tbody tr {
+    transition: all 0.3s;
+}
+.table.hover_hover tbody tr:hover {
+    background-color: $aqua_haze;
+}
+/* table hover */
+.table.bg_info.hover_hover tbody tr:hover,
+.table.bg_success.hover_hover tbody tr:hover,
+.table.bg_warning.hover_hover tbody tr:hover,
+.table.bg_danger.hover_hover tbody tr:hover,
+.table.bg_dark.hover_hover tbody tr:hover,
+.table.bg_secondary.hover_hover tbody tr:hover {
+    background-color: $drawn_pink !important;
+}
+/* table size */
+
+/* scroll */
+.scroll_width_scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+
+.scroll_width_sm ::after,
+.scroll_width_md ::after,
+.scroll_width_lg ::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+.table.size_sm {
+    min-width: 600px !important;
+}
+
+.table.size_md {
+    min-width: 864px !important;
+}
+.table.size_lg {
+    min-width: 1000px !important;
+}
+.table.size_xlg {
+    min-width: 1200px !important;
+}

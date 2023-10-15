@@ -1,0 +1,65 @@
+@import "../../../scss/mixins/media";
+@import "../../../scss/variables";
+@import "../../../scss/mixins/flex";
+
+.content_body {
+    padding-bottom: 5px;
+    .inner {
+        width: 100%;
+    }
+    .body {
+        padding: 20px 20px 5px 20px;
+        max-height: calc(100vh - 250px);
+        // overflow-y: auto;
+        // &::-webkit-scrollbar {
+        //     width: 0px;
+        // }
+    }
+    .body.show_preview {
+        @include flex(_, _);
+        .drop_zone_and_images {
+            // display: none;
+        }
+        .preview_slide {
+            width: 100%;
+            background-color: $porcelain;
+            padding:16px;
+            
+        }
+    }
+    .drop_zone_and_images {
+        max-height: calc(100vh - 250px);
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
+    }
+    .header {
+        width: 100%;
+        padding: 20px 20px 0px 20px;
+    }
+}
+
+@include responsive(tablet) {
+    .content_body {
+        @include flex(_, _, _);
+        // padding: 20px 20px 10px 20px;
+        width: calc(100% - 138px);
+        .body.show_preview {
+            @include flex(_, _, $space_30);
+            .drop_zone_and_images {
+                display: block;
+                width: 48%;
+            }
+            .preview_slide {
+                width: 52%
+            }
+        }
+    }
+}
+@include responsive(laptop) {
+    .content_body {
+        @include flex(_, _, _);
+        width: calc(100% - 218px);
+    }
+}

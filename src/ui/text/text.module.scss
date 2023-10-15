@@ -1,0 +1,167 @@
+@import "../../scss/mixins/media";
+@import "../../scss/variables";
+@import "../../scss/mixins/font";
+
+.paragraph {
+  @include font($fs_16, $fw_semiBold, $dark_charcoal, $space_24);
+  margin: $space_0;
+  padding: $space_0;
+}
+
+.span {
+  @include font($fs_12, $fw_regular, $dark_charcoal, $space_20);
+  display: inline-block;
+}
+.link {
+  @include font($fs_12, $fw_regular, $true_blue, $space_20);
+  display: inline-block;
+}
+.link.hover:hover {
+  text-decoration: underline;
+}
+.paragraph_sm,
+.span_sm,
+.link_sm {
+  @include font($fs_12, _, _, );
+}
+.paragraph_md,
+.span_md,
+.link_md {
+  @include font($fs_12, _, _, );
+}
+.paragraph_lg,
+.span_lg,
+.link_lg {
+  @include font($fs_13, _, _, );
+}
+.h1 {
+  @include font($fs_20, _, _, );
+  margin:$space_0;
+}
+.h2 {
+  @include font($fs_18, _, _, );
+  margin:$space_0;
+}
+.h3 {
+  @include font($fs_16, _, _, );
+  margin:$space_0;
+}
+.h4 {
+  @include font($fs_14, _, _, );
+  margin:$space_0;
+}
+.h5 {
+  @include font($fs_12, _, _, );
+  margin:$space_0;
+}
+.h6 {
+  @include font($fs_12, _, _, );
+  margin:$space_0;
+}
+
+/* color */
+.primary {
+  color: $dark_charcoal !important;
+}
+.secondary {
+  color: $granite_gray !important;
+}
+.tertiary {
+  color: $nickel !important;
+}
+.subdued {
+  color: $white !important;
+}
+.linkColor{
+  color:$true_blue !important;
+}
+/* text decoration */
+.default {
+  text-decoration: none;
+}
+.line_through {
+  text-decoration: line-through;
+}
+.underline {
+  text-decoration: underline;
+}
+.overline {
+  text-decoration: overline;
+}
+.superline {
+  text-decoration: underline overline;
+}
+
+/* truncate */
+.truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* alignment */
+.start {
+  text-align: start;
+}
+.center {
+  text-align: center;
+}
+.end {
+  text-align: end;
+}
+.justify {
+  text-align: justify;
+}
+
+/* font weight */
+.regular {
+  font-weight: $fw_regular !important;
+}
+.medium {
+  font-weight: $fw_medium !important;
+}
+.semiBold {
+  font-weight: $fw_semiBold !important;
+}
+.bold {
+  font-weight: $fw_bold !important;
+}
+
+@include responsive(tablet) {
+  .paragraph_md,
+  .span_md,
+  .link_md {
+    @include font($fs_13, _, _, $space_21);
+  }
+  .paragraph_lg,
+  .span_lg,
+  .link_lg {
+    @include font($fs_16, _, _, $space_24);
+  }
+
+  /* heading */
+  .h1 {
+    @include font($fs_28, _, _, );
+  }
+  .h2 {
+    @include font($fs_24, _, _, );
+  }
+  .h3 {
+    @include font($fs_20, _, _, );
+  }
+  .h4 {
+    @include font($fs_16, _, _, );
+  }
+  .h5 {
+    @include font($fs_13, _, _, );
+  }
+  .h6 {
+    @include font($fs_13, _, _, );
+  }
+}
+@include responsive(laptop) {
+  .link {
+    cursor: pointer;
+  }
+}

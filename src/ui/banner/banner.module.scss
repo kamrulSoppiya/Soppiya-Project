@@ -1,0 +1,56 @@
+@import "../../scss/mixins/media";
+@import "../../scss/variables";
+@import "../../scss/mixins/flex";
+@import "../../scss/mixins/font";
+.banner {
+  border: $space_1 solid $shadow_green;
+  border-radius: $space_3;
+  padding: $space_20;
+  background: $info_banner_bg;
+
+  .banner_inner {
+    position: relative;
+    @include flex(_, _, $space_10, _);
+    & .banner_left_col {
+      width: $space_25;
+      .banner_status_icon {
+        display: inline-flex;
+        & svg {
+          width: $space_20;
+          height: $space_20;
+        }
+      }
+    }
+    & .banner_right_col {
+      width: calc(100% - $space_25);
+      & .banner_title {
+        margin-bottom: $space_4;
+      }
+      .banner_button {
+        margin-top: $space_20;
+        @include flex(_, center, $space_10);
+      }
+    }
+    & .banner_cross_icon {
+      position: absolute;
+      right: $space_0;
+      top: $space_0;
+    }
+  }
+}
+.banner.info {
+  border: $space_1 solid $bondi_blue !important;
+  background: $info_banner_bg !important;
+}
+.banner.success {
+  border: $space_1 solid $bondi_blue !important;
+  background: $success_banner_bg !important;
+}
+.banner.warning {
+  border: $space_1 solid $maize !important;
+  background: $warning_banner_bg !important;
+}
+.banner.danger {
+  border: $space_1 solid $flamingo_pink !important;
+  background: $lavender_blush !important;
+}

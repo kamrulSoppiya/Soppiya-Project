@@ -1,0 +1,14 @@
+@import "../../scss/variables";
+.divider{
+    width: 100%;
+    height:$space_1;
+}
+.divider_default{
+    background-color: $drawn_pink;
+}
+.divider_semi_dark{
+    background-color: $cadet_blue;
+}
+.divider_dark{
+    background-color: $philippine_gray;
+}

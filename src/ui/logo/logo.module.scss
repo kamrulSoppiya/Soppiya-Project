@@ -1,0 +1,47 @@
+@import "../../scss/mixins/media";
+.logo__wrapper {
+  .logo {
+    object-fit: cover;
+  }
+  .logo__xs {
+    width: 50px;
+    height: 15px;
+  }
+  .logo__sm {
+    width: 66px;
+    height: 20px;
+  }
+
+  .logo__md {
+    width: 88px;
+    height: 27px;
+  }
+
+  .logo__lg {
+    width: 112px;
+    height: 34px;
+  }
+}
+
+@include responsive(tablet) {
+  .logo__wrapper {
+    .logo__xs {
+      width: 55px;
+      height: 16.5px;
+    }
+    .logo__sm {
+      width: 76px;
+      height: 23px;
+    }
+
+    .logo__md {
+      width: 96px;
+      height: 29px;
+    }
+
+    .logo__lg {
+      width: 155px;
+      height: 48px;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+@import "../../../scss/variables";
+.card_body {
+  padding: $space_20;
+}
+.card_body.padding_sm {
+  padding: $space_10 ;
+}
+.card_body.padding_md {
+  padding: $space_15 ;
+}
+.card_body.padding_lg {
+  padding: $space_20 ;
+}
+
+.card_body.padding_none {
+  padding: $space_0 ;
+}
+.border_bottom {
+  border-bottom: $space_1 solid $drawn_pink;
+}
