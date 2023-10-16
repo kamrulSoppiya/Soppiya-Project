@@ -1,13 +1,11 @@
+import { ImageSchema } from "../imageManagerModel";
+
 export type PreviewListProps = {
-    id?: number;
-    imgSource?: string;
-    imgName?: string;
-    fileExtension?: string | number;
+    image:ImageSchema;
     buttonLoader?: boolean;
-    imagesView?:string;
-    handleImagePreview: () => void;
-    onImgSelect?: (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-    onClick?: (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-    handleSelectedItem: () => void;
+    className?:string;
     selected?:boolean;
+    onCurrentPreview?: (id:number) => void;
+    onClick?: (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+    onSelect?: (id: number) => void;
   }

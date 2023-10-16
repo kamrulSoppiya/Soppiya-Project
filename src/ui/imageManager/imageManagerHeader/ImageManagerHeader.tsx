@@ -8,14 +8,20 @@ import { Radio } from '@/ui/radio'
 
 interface ContentBodyHeaderProps {
     onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, customParam: string) => void;
-    // images?:(string | number |(string | number)[]);
     handleImageView: (param: string) => void;
     handleInputChange:(event: React.ChangeEvent<HTMLInputElement>) => void;
+    selectedItem?: number;
     handleSort:(param: string) => void;
 }
+// selectedItem, images,
 const ImageManagerHeader = ({ handleImageView, handleInputChange, handleSort }: ContentBodyHeaderProps) => {
     const [sortingMenu, setSortingMenu] = useState(false)
     
+    // const itemsDeleted = () => {
+    //     return images.filter(img => !selectedItem.includes(img.id));
+    // }
+
+    // console.log(itemsDeleted());
     return (
         <>
             <div className={style.content_body_header}>
@@ -30,6 +36,7 @@ const ImageManagerHeader = ({ handleImageView, handleInputChange, handleSort }: 
                 </div>
                 <div className={style.header_right}>
                     <div>
+                        {/* onClick={itemsDeleted} */}
                         <Button size='sm' variant='disabled'>Delete selected</Button>
                     </div>
                     <div className={classNames(style.button, style.sorting_button, style.padding, sortingMenu && style.active_sorting_box)}>

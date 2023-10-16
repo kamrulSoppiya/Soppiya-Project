@@ -7,19 +7,18 @@ import { PreviewListProps } from './imageModel';
 
 const ImageCard = ({
   selected,
-  handleSelectedItem,
-  imgSource,
-  imgName,
-  imagesView,
-  handleImagePreview,
+  image,
+  className,
+  onSelect,
+  onCurrentPreview,
 }: PreviewListProps) => {
   const [dotMenu, setDotMenu] = useState(false);
-  console.log(selected);
+
   return (
-  <div className={classNames(style.image_card, `${selected ? style.selected_image : ''}`, imagesView && style[imagesView+"_view"])}>
+    <div className={classNames(style.image_card, selected ? style.selected_image : '', className && style[className + "_view"])}>
       <div className={style.card_top}>
-        <div className={style.image_wrapper} onClick={handleSelectedItem}>
-          <img src={imgSource} alt={imgName} />
+        <div className={style.image_wrapper} onClick={() => typeof onSelect === "function" && onSelect(image._id)}>
+          <img src={image.url} alt={image.file_name} />
         </div>
         <div className={style.hover}>
           <div className={style.dot_button} onClick={() => setDotMenu((prev) => !prev)}>
@@ -34,7 +33,7 @@ const ImageCard = ({
               </div>
             </div>
             <div className={style.menu_item}>
-              <div className={style.menu_text} onClick={handleImagePreview}>
+              <div className={style.menu_text} onClick={() => typeof onCurrentPreview === "function" && onCurrentPreview(image._id)}>
                 <Text size="md" fontWeight="regular">
                   Preview
                 </Text>
@@ -46,7 +45,7 @@ const ImageCard = ({
       <div className={style.card_bottom}>
         <div className={style.name}>
           <Text size="sm" fontWeight="regular" truncate>
-            {imgName}
+            {image.file_name}
           </Text>
         </div>
       </div>

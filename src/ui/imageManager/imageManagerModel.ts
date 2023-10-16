@@ -3,22 +3,18 @@ export type ImageMangerProps = {
   buttonText?:string;
   buttonLoader?:boolean;
   buttonVariant?:"link" | "default" | "info" | "danger" | "success" | "warning" | "disabled" | "white" ;
-  fileExtentsion?: string;
-  fileName: (string | number)[];
+  selectLimit?: number;
   onClose: () => void;
   onClick: () => void;
-  currentIndex?: number;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  handleInputChange:()=>void;
-  
 };
 
-export type ImageObject = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  UploadDate: any;
-  fileName:string;
+export type ImageSchema = {
+  _id: number;
   url: string;
-  fileExtentsion: string;
+  file_name: string;
+  height: string;
+  width: string;
+  createdAt:string | number;
 }
 
    

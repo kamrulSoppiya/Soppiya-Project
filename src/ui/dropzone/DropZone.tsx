@@ -9,16 +9,12 @@ type dropZoneProps = {
 }
 
 type newFileProps = {
-  id: number;
+  _id: number;
   url: string;
-  fileName: string;
-  fileType: string;
-  fileExtentsion:string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  UploadDate:any;
-  fileSize: number;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  imageSetDate: string | number | any;
+  file_name: string;
+  height: string;
+  width: string;
+  createdAt:string | number;
 }
 
 const DropZone = ({ onImageUpload, imgFormat = [], setTime }: dropZoneProps) => {
@@ -46,24 +42,19 @@ const DropZone = ({ onImageUpload, imgFormat = [], setTime }: dropZoneProps) => 
     const reader = new FileReader();
     reader.onload = (event) => {
       const newFile: newFileProps = {
-        id:0,
+        _id:0,
         url: '',
-        fileName: '',
-        fileType:'',
-        fileExtentsion:'',
-        UploadDate:'',
-        fileSize: 0,
-        imageSetDate: ''
+        file_name: '',
+        createdAt:'',
+        height: '',
+        width: '',
       }
-      newFile.id= getRandomInt(1000, 10000);
+      newFile._id= getRandomInt(1000, 10000);
       const base64Image = event.target!.result as string;
       newFile.url = base64Image;
-      newFile.fileType = file.type;
-      newFile.fileName = file.name.split('.')[0];
-      newFile.fileExtentsion = file.name.split('.')[1];
-      newFile.UploadDate = file.lastModified;
-      newFile.fileSize = file.size;
-      newFile.imageSetDate = '12 march 2023';
+      newFile.file_name = file.name.split('.')[0];
+      newFile.createdAt = file.lastModified;
+  
       onImageUpload(newFile);
     };
     reader.readAsDataURL(file);

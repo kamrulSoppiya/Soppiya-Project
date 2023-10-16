@@ -1,67 +1,71 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, useEffect } from 'react';
 import style from './imageManager.module.scss';
 import { Modal } from '../modal';
 import { ImageMangerProps } from './imageManagerModel';
-import { ImageObject } from './imageManagerModel';
+import { ImageSchema } from './imageManagerModel';
 import { ImageManagerHeader } from './imageManagerHeader';
 import { classNames } from '@/utils';
 import { ImageCard } from './imageCard';
 import { PreviewSlide } from './previewSlide';
 import { DropZone } from '../dropzone';
-
+import data from "./data.json"
 
 const ImageManager = ({
   title = "Select image",
   buttonText = "Done",
   buttonLoader,
   buttonVariant = "disabled",
+  selectLimit,
   onClose,
   onClick
 }: ImageMangerProps) => {
   const [imagesView, setImagesView] = useState<string>('grid');
   const [showImagePreview, setShowImagePreview] = useState<boolean>(false);
-  const [images, setImages] = useState<ImageObject[]>([]);
+  const [images, setImages] = useState<ImageSchema[]>([]);
   const [searchInputs, setSearchInputs] = useState<string>('');
-  const [filteredImages, setFilteredImages] = useState<ImageObject[]>([]);
+  const [filteredImages, setFilteredImages] = useState<ImageSchema[]>([]);
   // const [sortCriteria, setSortCriteria] = useState<string>('newest');
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [selectedCurrentIndex, setSelectedCurrentIndex] = useState<number[]>([]);
+  const [selectedCurrentItem, setSelectedCurrentIndex] = useState<number[]>([]);
+  const [previewImgId, setPreviewImgId] = useState<number>(0);
   //Example Image Data - "jpg", "jpeg", "png"
   const imgFormat: string[] = [];
   // sorting Data
   const handleSort = (criteria: string): void => {
     let sorted = [...images];
-
     if (criteria === 'newest') {
-      sorted = sorted.sort((a, b) => (b.UploadDate as number) - (a.UploadDate as number));
+      sorted = sorted.sort((a, b) => (b.createdAt as number) - (a.createdAt  as number));
     } else if (criteria === 'oldest') {
-      sorted = sorted.sort((a, b) => (a.UploadDate as number) - (b.UploadDate as number));
+      sorted = sorted.sort((a, b) => (a.createdAt  as number) - (b.createdAt  as number));
     } else if (criteria === 'name-az') {
-      sorted = sorted.sort((a, b) => (a.fileName as string).localeCompare(b.fileName as string));
+      sorted = sorted.sort((a, b) => (a.file_name as string).localeCompare(b.file_name as string));
     } else if (criteria === 'name-za') {
-      sorted = sorted.sort((a, b) => (b.fileName as string).localeCompare(a.fileName as string));
+      sorted = sorted.sort((a, b) => (b.file_name as string).localeCompare(a.file_name as string));
     }
 
     setImages(sorted);
-    // setSortCriteria(criteria);
   };
 
+  // Image Preview
+  const handleSelectImage = (_id: number) => {
+    setPreviewImgId(_id);
+    setShowImagePreview(true);
+  };
 
-  const handleSelectedItem = (index: number, maxImages: number | undefined) => {
-    if (selectedCurrentIndex.includes(index)) {
-      setSelectedCurrentIndex(selectedCurrentIndex.filter(item => item !== index));
-    } else if (!maxImages || selectedCurrentIndex.length < maxImages) {
-      setSelectedCurrentIndex([...selectedCurrentIndex, index]);
+  const handleSelectedItem = (imgId: number) => {
+    if (selectedCurrentItem.includes(imgId)) {
+      setSelectedCurrentIndex(selectedCurrentItem.filter(item => item !== imgId));
+    } else if (!selectLimit || selectedCurrentItem.length < selectLimit) {
+      setSelectedCurrentIndex([...selectedCurrentItem, imgId]);
     }
   };
-  
+
   // searching item
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const searchValue = event.target.value.toLowerCase();
     setSearchInputs(searchValue);
 
     const filteredImage = images.filter((image) =>
-      (image.fileName).toLowerCase().includes(searchInputs)
+      (image.file_name).toLowerCase().includes(searchInputs)
     );
     setFilteredImages(filteredImage);
   };
@@ -77,29 +81,10 @@ const ImageManager = ({
     setImages((prevImages: (string | number | (string | number)[] | any)[]) => [...prevImages, newFile]);
   };
 
-  // Image Preview
-  const handleImagePreview = (index: number): void => {
-    setCurrentIndex(index);
-    setShowImagePreview(true);
-  };
-  // close Image Preview
-  const closeImagePreview = (): void => {
-    setCurrentIndex(0);
-    setShowImagePreview(false);
-  };
-
-  const handlePrevClick = (): void => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-
-  const handleNextClick = (): void => {
-    if (currentIndex < images.length - 1) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
+  // console.log(selectedCurrentItem);
+  useEffect(() => {
+    setImages(data)
+  }, [])
   return (
     <Modal
       cardBodyPadding='none'
@@ -115,7 +100,8 @@ const ImageManager = ({
       <div className={style.image_manager_wrapper}>
         <div className={style.image_manager_container}>
           <div className={style.header_area}>
-            <ImageManagerHeader handleImageView={handleListView} handleInputChange={(event: React.ChangeEvent<HTMLInputElement>)=>handleInputChange(event)} handleSort={handleSort} />
+            {/* images={images} selectedItem = {selectedCurrentItem} */}
+            <ImageManagerHeader handleImageView={handleListView} handleInputChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputChange(event)} handleSort={handleSort} />
           </div>
           <div className={classNames(style.content_body, style.show_preview, !showImagePreview && style.manage_image_view_width)}>
             <div className={style.image_and_dropzone}>
@@ -127,13 +113,14 @@ const ImageManager = ({
                   {(searchInputs.length > 0) ? filteredImages.map((file, index) => (
                     <div key={index} style={{ margin: "10px" }}>
                       <div key={index} style={{ margin: "10px" }}>
-                        <ImageCard selected={selectedCurrentIndex.includes(index)} imagesView={imagesView} handleImagePreview={()=> handleImagePreview(index)} handleSelectedItem={() => handleSelectedItem(index,2)} imgSource={file.url} imgName={file.fileName} fileExtension={file.fileExtentsion} />
+                        <ImageCard image={file} selected={selectedCurrentItem.includes(file._id)} className={imagesView} onCurrentPreview={handleSelectImage} onSelect={handleSelectedItem}  />
                       </div>
                     </div>
                   )) :
+
                     (images.length > 0 && (images.map((file, index) => (
                       <div key={index} style={{ margin: "10px" }}>
-                        <ImageCard selected={selectedCurrentIndex.includes(index)} imagesView={imagesView} handleImagePreview={()=> handleImagePreview(index)} handleSelectedItem={() => handleSelectedItem(index,2)} imgSource={file.url} imgName={file.fileName} fileExtension={file.fileExtentsion} />
+                        <ImageCard image={file} selected={selectedCurrentItem.includes(file._id)} className={imagesView} onCurrentPreview={handleSelectImage} onSelect={handleSelectedItem} />
                       </div>
                     ))
                     ))}
@@ -142,9 +129,9 @@ const ImageManager = ({
             </div>
             {showImagePreview && (
               <div className={classNames(style.preview, showImagePreview && style.active_preview)}>
-                <PreviewSlide imgSource ={images} currentIndex={currentIndex} onClose={closeImagePreview} handlePrevClick={handlePrevClick} handleNextClick={handleNextClick} />
+                <PreviewSlide images={images} onShow={setShowImagePreview} currentId={previewImgId} />
               </div>
-            )} 
+            )}
           </div>
         </div>
       </div>
