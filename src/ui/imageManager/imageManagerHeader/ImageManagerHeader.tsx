@@ -10,7 +10,7 @@ interface ContentBodyHeaderProps {
     onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>, customParam: string) => void;
     handleImageView: (param: string) => void;
     handleInputChange:(event: React.ChangeEvent<HTMLInputElement>) => void;
-    selectedItem?: number;
+    selected?: number;
     handleSort:(param: string) => void;
 }
 // selectedItem, images,
@@ -36,9 +36,9 @@ const ImageManagerHeader = ({ handleImageView, handleInputChange, handleSort }: 
                 </div>
                 <div className={style.header_right}>
                     <div>
-                        {/* onClick={itemsDeleted} */}
-                        <Button size='sm' variant='disabled'>Delete selected</Button>
-                    </div>
+                        {/* use style in variant variant={} */}
+                        <Button size='sm'>Delete selected</Button>
+                    </div>selected
                     <div className={classNames(style.button, style.sorting_button, style.padding, sortingMenu && style.active_sorting_box)}>
                         <Button size='sm' type='outline' onClick={() => setSortingMenu(prev => !prev)}>
                             <SortingIcon />

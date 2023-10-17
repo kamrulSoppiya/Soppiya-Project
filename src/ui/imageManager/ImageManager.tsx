@@ -8,7 +8,7 @@ import { classNames } from '@/utils';
 import { ImageCard } from './imageCard';
 import { PreviewSlide } from './previewSlide';
 import { DropZone } from '../dropzone';
-import data from "./data.json"
+import data from './data.json';
 
 const ImageManager = ({
   title = "Select image",
@@ -59,15 +59,35 @@ const ImageManager = ({
     }
   };
 
-  // searching item
-  const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
-    const searchValue = event.target.value.toLowerCase();
-    setSearchInputs(searchValue);
-
+  // Function to perform the actual search
+  const performSearch = (searchQuery: string) => {
     const filteredImage = images.filter((image) =>
-      (image.file_name).toLowerCase().includes(searchInputs)
+      image.file_name.toLowerCase().includes(searchQuery)
     );
     setFilteredImages(filteredImage);
+  };
+
+  // Debounce function
+  const debounce = (func: (searchQuery: string) => void, delay: number) => {
+    let timeoutId: NodeJS.Timeout | null = null;
+
+    return (searchQuery: string) => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      timeoutId = setTimeout(() => {
+        func(searchQuery);
+      }, delay);
+    };
+  };
+
+  const debouncedSearch = debounce(performSearch, 1000);
+
+  // Update the search input and trigger debounced search
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const searchValue = event.target.value.toLowerCase();
+    setSearchInputs(searchValue);
+    debouncedSearch(searchValue);
   };
 
   // List View
@@ -81,10 +101,10 @@ const ImageManager = ({
     setImages((prevImages: (string | number | (string | number)[] | any)[]) => [...prevImages, newFile]);
   };
 
-  // console.log(selectedCurrentItem);
   useEffect(() => {
     setImages(data)
   }, [])
+
   return (
     <Modal
       cardBodyPadding='none'
@@ -100,7 +120,6 @@ const ImageManager = ({
       <div className={style.image_manager_wrapper}>
         <div className={style.image_manager_container}>
           <div className={style.header_area}>
-            {/* images={images} selectedItem = {selectedCurrentItem} */}
             <ImageManagerHeader handleImageView={handleListView} handleInputChange={(event: React.ChangeEvent<HTMLInputElement>) => handleInputChange(event)} handleSort={handleSort} />
           </div>
           <div className={classNames(style.content_body, style.show_preview, !showImagePreview && style.manage_image_view_width)}>
@@ -110,16 +129,13 @@ const ImageManager = ({
               </div>
               <div className={style.image_view}>
                 <div className={classNames(style.images_list, imagesView === 'grid' ? style.grid_view : style.list_view)}>
-                  {(searchInputs.length > 0) ? filteredImages.map((file, index) => (
-                    <div key={index} style={{ margin: "10px" }}>
-                      <div key={index} style={{ margin: "10px" }}>
+                  {(searchInputs.length > 0 ) ? filteredImages.map((file, index) => (
+                    <div key={index}>
                         <ImageCard image={file} selected={selectedCurrentItem.includes(file._id)} className={imagesView} onCurrentPreview={handleSelectImage} onSelect={handleSelectedItem}  />
-                      </div>
                     </div>
                   )) :
-
                     (images.length > 0 && (images.map((file, index) => (
-                      <div key={index} style={{ margin: "10px" }}>
+                      <div key={index}>
                         <ImageCard image={file} selected={selectedCurrentItem.includes(file._id)} className={imagesView} onCurrentPreview={handleSelectImage} onSelect={handleSelectedItem} />
                       </div>
                     ))

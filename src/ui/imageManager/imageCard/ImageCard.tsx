@@ -18,7 +18,7 @@ const ImageCard = ({
     <div className={classNames(style.image_card, selected ? style.selected_image : '', className && style[className + "_view"])}>
       <div className={style.card_top}>
         <div className={style.image_wrapper} onClick={() => typeof onSelect === "function" && onSelect(image._id)}>
-          <img src={image.url} alt={image.file_name} />
+          <img src={image.url} alt={image.file_name} draggable = "false"/>
         </div>
         <div className={style.hover}>
           <div className={style.dot_button} onClick={() => setDotMenu((prev) => !prev)}>

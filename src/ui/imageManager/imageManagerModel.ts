@@ -12,8 +12,8 @@ export type ImageSchema = {
   _id: number;
   url: string;
   file_name: string;
-  height: string;
-  width: string;
+  height?: string;
+  width?: string;
   createdAt:string | number;
 }
 

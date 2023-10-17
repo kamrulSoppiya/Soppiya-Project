@@ -13,6 +13,7 @@
     "noUnusedParameters": true,
     "declaration": true,
     "moduleResolution": "Node",
+    "resolveJsonModule": true,
     "paths": {
       "@/*": ["./src/*"]
     }
